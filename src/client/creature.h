@@ -39,7 +39,6 @@ struct PreyMonster
 class Creature : public Thing
 {
 public:
-    void predictDamage(int damage);
     static double speedA;
     static double speedB;
     static double speedC;
@@ -335,7 +334,6 @@ private:
 class Npc final : public Creature
 {
 public:
-    void predictDamage(int damage);
     bool isNpc() override { return true; }
 };
 
@@ -343,6 +341,5 @@ public:
 class Monster final : public Creature
 {
 public:
-    void predictDamage(int damage);
     bool isMonster() override { return true; }
 };

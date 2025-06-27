@@ -2643,11 +2643,6 @@ void ProtocolGame::parseTextMessage(const InputMessagePtr& msg)
             const uint8_t color = msg->getU8();
             text = msg->getString();
 
-    if (color != Otc::TextGreen && color != Otc::TextBlue) {
-        if (const auto& creature = g_map.getCreatureByPos(pos)) {
-            creature->predictDamage(std::abs(value));
-        }
-    }
             g_map.addAnimatedText(std::make_shared<AnimatedText>(std::to_string(value), color), pos);
             break;
         }
@@ -2659,11 +2654,6 @@ void ProtocolGame::parseTextMessage(const InputMessagePtr& msg)
             const uint8_t color = msg->getU8();
             text = msg->getString();
 
-    if (color != Otc::TextGreen && color != Otc::TextBlue) {
-        if (const auto& creature = g_map.getCreatureByPos(pos)) {
-            creature->predictDamage(std::abs(value));
-        }
-    }
             g_map.addAnimatedText(std::make_shared<AnimatedText>(std::to_string(value), color), pos);
             break;
         }

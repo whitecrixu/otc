@@ -1217,16 +1217,3 @@ bool Creature::canShoot(int distance)
 {
     return getTile() ? getTile()->canShoot(distance) : false;
 }
-void Creature::predictDamage(int damage)
-{
-    if (damage <= 0 || isLocalPlayer())
-        return;
-
-    if (m_maxHealth <= 0 || m_healthPercent == 0)
-        return;
-
-    m_health = std::max<int>(0, m_health - damage);
-
-    const uint8_t newPercent = std::clamp<uint8_t>(std::round(m_health * 100.0 / m_maxHealth), 0, 100);
-    setHealthPercent(newPercent);
-}
